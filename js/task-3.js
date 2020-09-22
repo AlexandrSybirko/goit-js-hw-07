@@ -16,14 +16,16 @@ const images = [
   },
 ];
 
-const listImages = document.querySelector('#gallery');
+const listImagesRef = document.querySelector('#gallery');
 const imagesMarkup = createListImages(images);
-listImages.insertAdjacentHTML('beforeend', imagesMarkup);
+listImagesRef.insertAdjacentHTML('beforeend', imagesMarkup);
 
 function createListImages(images) {
-  return images.map(({ url, alt }) => {
-    return `<li><img src="${url}" alt="${alt}"></li>`;
-  });
+  return images
+    .map(({ url, alt }) => {
+      return `<li><img src="${url}" alt="${alt}"></li>`;
+    })
+    .join('');
 }
 
 console.log(createListImages(images));
